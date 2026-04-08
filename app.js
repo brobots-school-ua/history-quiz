@@ -216,6 +216,15 @@ function showReview() {
 
 // ── Event listeners ──
 document.getElementById('start-btn').addEventListener('click', () => showScreen('topics-screen'));
+
+document.getElementById('quit-btn').addEventListener('click', () => {
+  clearInterval(timerInterval);
+  if (currentIndex > 0) {
+    showResults();
+  } else {
+    showScreen('topics-screen');
+  }
+});
 document.getElementById('back-to-start').addEventListener('click', () => showScreen('start-screen'));
 
 document.querySelectorAll('[data-block]').forEach(btn => {
