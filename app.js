@@ -1,8 +1,44 @@
 // Quiz state
 let currentIndex = 0;
 let score = 0;
-let wrongAnswers = []; // Store wrong answers for review
+let wrongAnswers = [];
 let shuffledQuestions = [];
+let timerInterval = null;
+let timeLeft = 30;
+
+const TIME_PER_QUESTION = 30; // seconds
+
+function startTimer() {
+  clearInterval(timerInterval);
+  timeLeft = TIME_PER_QUESTION;
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay();
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      timeExpired();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const el = document.getElementById('timer-display');
+  el.textContent = `⏱️ 0:${timeLeft.toString().padStart(2, '0')}`;
+  el.className = 'timer' + (timeLeft <= 10 ? ' timer-warning' : '');
+}
+
+function timeExpired() {
+  const q = shuffledQuestions[currentIndex];
+  const buttons = document.querySelectorAll('.option-btn');
+  buttons.forEach(btn => btn.disabled = true);
+  buttons[q.correct].classList.add('correct');
+  wrongAnswers.push({ q, selectedIndex: -1 });
+  document.getElementById('feedback-icon').textContent = '⏰';
+  document.getElementById('feedback-text').textContent = 'Час вийшов!';
+  document.getElementById('explanation').textContent = q.explanation;
+  document.getElementById('feedback').classList.remove('hidden');
+}
 
 // Shuffle array helper
 function shuffle(arr) {
@@ -23,6 +59,7 @@ function startQuiz() {
   shuffledQuestions = shuffle(questions);
   showScreen('quiz-screen');
   renderQuestion();
+  startTimer();
 }
 
 // Render current question
@@ -54,6 +91,7 @@ function renderQuestion() {
   // Hide feedback
   const feedback = document.getElementById('feedback');
   feedback.classList.add('hidden');
+  startTimer();
 }
 
 // Handle answer selection
@@ -62,6 +100,7 @@ function selectAnswer(selectedIndex) {
   const buttons = document.querySelectorAll('.option-btn');
   const feedback = document.getElementById('feedback');
 
+  clearInterval(timerInterval);
   // Disable all buttons
   buttons.forEach(btn => btn.disabled = true);
 

@@ -88,7 +88,28 @@ h1 { font-size: 2rem; color: #fff; margin-bottom: 4px; }
   align-items: center;
   margin-bottom: 8px;
 }
+.right-info { display: flex; align-items: center; gap: 10px; }
 #question-counter { color: #a0b4c8; font-size: 0.9rem; }
+
+.timer {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #a0b4c8;
+  background: rgba(255,255,255,0.08);
+  padding: 3px 10px;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+.timer-warning {
+  color: #e94560;
+  background: rgba(233,69,96,0.2);
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
 .badge {
   background: rgba(233,69,96,0.25);
   color: #e94560;
