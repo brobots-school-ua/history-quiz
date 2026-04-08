@@ -91,21 +91,17 @@ h1 { font-size: 2rem; color: #fff; margin-bottom: 4px; }
 .right-info { display: flex; align-items: center; gap: 10px; }
 
 .btn-quit {
-  background: rgba(233,69,96,0.2);
-  border: 1px solid rgba(233,69,96,0.4);
-  color: #e94560;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  font-size: 0.85rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #a0b4c8;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: all 0.2s;
-  flex-shrink: 0;
+  white-space: nowrap;
 }
-.btn-quit:hover { background: rgba(233,69,96,0.4); transform: scale(1.1); }
+.btn-quit:hover { background: rgba(233,69,96,0.2); border-color: #e94560; color: #e94560; }
 #question-counter { color: #a0b4c8; font-size: 0.9rem; }
 
 .timer {
