@@ -350,6 +350,47 @@ h2 { font-size: 1.6rem; color: #fff; margin-bottom: 16px; }
   font-weight: 600;
 }
 
+/* ── Themes drill-down screen ── */
+.theme-all-btn {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, rgba(233,69,96,0.2), rgba(245,166,35,0.15));
+  border: 2px solid rgba(233,69,96,0.4);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #fff;
+  text-align: left;
+}
+.theme-all-btn:hover { background: linear-gradient(135deg, rgba(233,69,96,0.35), rgba(245,166,35,0.25)); transform: translateY(-2px); }
+.theme-all-btn .topic-icon { font-size: 1.4rem; }
+.theme-all-btn .topic-title { font-size: 1rem; font-weight: 700; flex: 1; }
+.theme-all-btn .topic-count { color: #f5a623; font-size: 0.82rem; font-weight: 600; }
+
+.themes-list { display: flex; flex-direction: column; gap: 8px; }
+
+.theme-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #e0e0e0;
+  text-align: left;
+}
+.theme-item-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); transform: translateX(4px); }
+.theme-num { font-size: 0.75rem; font-weight: 700; color: #e94560; min-width: 52px; }
+.theme-name { flex: 1; font-size: 0.9rem; color: #fff; }
+.theme-q-count { font-size: 0.78rem; color: #7a8fa0; white-space: nowrap; }
+
 /* Review topic label */
 .review-topic {
   font-size: 0.78rem;
